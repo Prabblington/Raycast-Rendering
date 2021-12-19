@@ -7,7 +7,7 @@ class Particle
   Particle() {
     //this.fov = 45; // original code
     fov = 60; // fisheye fix
-    position = new PVector(width/2, height/2);
+    position = new PVector(width/6, height/2);
     rays = new ArrayList();
     heading = 0;
     
