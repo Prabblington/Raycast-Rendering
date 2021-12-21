@@ -17,11 +17,26 @@ class Particle
     }
   }
   
+  public void setPositionX(float x)
+  {
+   position.x = x; 
+  }
+  public void setPositionY(float y)
+  {
+   position.y = y; 
+  }  
+  public float getPositionX()
+  { 
+   return (float)position.x; 
+  }
+  public float getPositionY()
+  { 
+   return (float)position.y; 
+  }  
   public float getFOV()
   {
    return this.fov; 
-  }
-  
+  }  
   public void setFOV(float fov)
   {
     this.fov = fov;
@@ -101,6 +116,5 @@ class Particle
     {
       ray.render();
     }
-  }
-  
+  }  
 }
