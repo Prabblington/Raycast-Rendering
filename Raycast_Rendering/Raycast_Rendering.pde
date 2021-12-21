@@ -59,8 +59,7 @@ public void draw()
   background(30);
   stroke(255);
   float FOVVal = 45;
-  
-  
+    
   //mouseX tracking lets the mouse determine the size of the field of view (FOV)
   if(mouseX <= 2) 
   {
