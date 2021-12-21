@@ -41,19 +41,23 @@ public void draw()
   
   
   //mouseX tracking lets the mouse determine the size of the field of view (FOV)
-  if(mouseX <= 2) {
+  if(mouseX <= 2) 
+  {
     FOVVal = 2; 
   }
-  else if (mouseX >= width / 2) {
+  else if (mouseX >= width / 2) 
+  {
     FOVVal = 360;
   } 
-  else {
+  else 
+  {
     FOVVal = map(mouseX, 0, width / 2, 0, 360);
   }
   
   particle.setFOV(FOVVal);
   
-  for (Boundary wall : walls) {
+  for (Boundary wall : walls) 
+  {
     wall.render();
   }
   
@@ -63,18 +67,22 @@ public void draw()
   ArrayList<Float> scene = particle.check(walls);
   float w = minmapW / scene.size();
   
-  if (keyPressed && key == CODED) {
+  if (keyPressed && key == CODED) 
+  {
     if (keyCode == LEFT) 
     {
       particle.rotate(-0.1);
     } 
-    else if (keyCode == RIGHT) {
+    else if (keyCode == RIGHT) 
+    {
       particle.rotate(0.1);
     } 
-    else if (keyCode == UP) {
+    else if (keyCode == UP) 
+    {
       particle.move(2);
     } 
-    else if (keyCode == DOWN) {
+    else if (keyCode == DOWN) 
+    {
       particle.move(-2);
     }
   }
@@ -84,7 +92,8 @@ public void draw()
   push();
   translate(minmapW, 0);   
   
-  for (int i = 0; i < scene.size(); i++) {
+  for (int i = 0; i < scene.size(); i++) 
+  {
     noStroke();
     float sq = scene.get(i) * scene.get(i);
     float wSq = minmapW * minmapW;
