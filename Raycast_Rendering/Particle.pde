@@ -11,7 +11,7 @@ class Particle
     rays = new ArrayList();
     heading = 0;
     
-    for (float a = -fov / 2; a < fov / 2; a++) 
+    for(float a = -fov / 2; a < fov / 2; a++) 
     {
       rays.add(new Ray(position, radians(a)));
     }
@@ -56,6 +56,7 @@ class Particle
   {
    heading += angle;
    int i = 0;
+   
    for(float a = -fov/ 2; a < fov / 2; a++) 
    {
       rays.get(i).setAngle(radians(a) + heading);
@@ -80,9 +81,10 @@ class Particle
       PVector closest = null;
       float viewDist = Float.MAX_VALUE;
       
-      for (Boundary wall : walls) 
+      for(Boundary wall : walls) 
       {
         PVector pt = ray.cast(wall);
+        
         if (pt != null) 
         {
           float distance = PVector.dist(this.position, pt);
@@ -112,7 +114,7 @@ class Particle
   
   public void render()
   {
-    for (Ray ray : this.rays) 
+    for(Ray ray : this.rays) 
     {
       ray.render();
     }
