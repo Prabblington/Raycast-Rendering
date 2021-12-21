@@ -33,6 +33,27 @@ public void setup()
   particle = new Particle();
 }
 
+public void checkMapCollide()
+{
+  //collision with render page
+  if(particle.getPositionX() <= 0)
+  {
+   particle.setPositionX(0); 
+  }
+  else if(particle.getPositionY() <= 0)
+  {
+   particle.setPositionY(0); 
+  }
+  else if(particle.getPositionX() >= minmapW)
+  {
+   particle.setPositionX(minmapW); 
+  }
+  else if(particle.getPositionY() >= minmapH)
+  {
+   particle.setPositionY(minmapH); 
+  }
+}
+
 public void draw()
 {
   background(30);
@@ -45,13 +66,12 @@ public void draw()
   {
     FOVVal = 2; 
   }
-  else if (mouseX >= width / 2) 
+  else if (mouseX >= minmapW) 
   {
     FOVVal = 360;
   } 
-  else 
-  {
-    FOVVal = map(mouseX, 0, width / 2, 0, 360);
+  else {
+    FOVVal = map(mouseX, 0, minmapW, 0, 360);
   }
   
   particle.setFOV(FOVVal);
@@ -85,9 +105,8 @@ public void draw()
     {
       particle.move(-2);
     }
-  }
-  
-  
+    checkMapCollide();    
+  }   
   
   push();
   translate(minmapW, 0);   
